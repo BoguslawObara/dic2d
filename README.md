@@ -1,5 +1,5 @@
 # dic2d
-segmentati<br/>
+segmentation of differential interference contrast microscopy images<br/>
 
 | INPUT  | OUTPUT |
 | ------------- | ------------- |
