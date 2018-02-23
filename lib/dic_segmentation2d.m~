@@ -1,0 +1,38 @@
+function imth = dic_segmentation2d(im,sl,nr,sd)
+%%  dic_segmentation2d 
+%   
+%   REFERENCE:
+%   
+%   INPUT:
+%       im      - input image
+%       n       - window size, 15 
+%       c       - constant value, 0
+%
+%   OUTPUT:
+%       imth    - output image
+%
+%   AUTHOR:
+%       Boguslaw Obara
+
+%% normalize
+im = double(im); im = (im - min(im(:))) / (max(im(:)) - min(im(:)));
+
+%% DIC direction estimation
+[a,as,v,p] = dic_direction2d(im,sl,nr);
+
+%% Hilbert trnsform
+ad = deg2rad(a) + pi/2;
+imh = hilbert_transform2d(im,ad);
+imh = real(imh);
+
+%% tophat
+se = strel('disk',sd);
+imt = imtophat(imh,se);
+
+%% normalize
+imt = double(imt); imt = (imt - min(imt(:))) / (max(imt(:)) - min(imt(:)));
+
+%% thresholding
+imth = imt>graythresh(imt);
+
+end
