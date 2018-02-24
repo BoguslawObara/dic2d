@@ -1,7 +1,7 @@
 # dic2d
 segmentation of differential interference contrast microscopy images<br/>
 
-| INPUT  | OUTPUT |
+| INPUT | OUTPUT |
 | ------------- | ------------- |
 | <img src="https://github.com/BoguslawObara/dic2d/blob/master/im/dic_image.png" width="250">  | <img src="https://github.com/BoguslawObara/dic2d/blob/master/im/dic_image_s.png" width="250"> |
 
